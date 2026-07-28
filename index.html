@@ -1,0 +1,301 @@
+<!doctype html>
+<!-- Tanvi Wadgaonkar — portfolio -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanvi Wadgaonkar — Python · Backend · ML</title>
+<meta name="description" content="Tanvi Wadgaonkar — Python, backend and machine-learning engineer. B.E. E&TC, IIIT Pune (2026). Builder of AgriSense AI and ReleaseGuard.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4D2E'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23F3F5EF' text-anchor='middle'%3ETW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F5EF; --card:#FCFDF9; --ink:#182B1E; --pine:#1F4D2E;
+    --sage:#5F7264; --marigold:#B97A18; --line:#D9E0D4;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper); color:var(--ink);
+    font:16px/1.65 "Archivo",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  a{color:var(--pine);text-decoration:none}
+  a:hover{color:var(--marigold)}
+  :focus-visible{outline:2px solid var(--marigold);outline-offset:3px;border-radius:4px}
+
+  /* ---------- header / hero ---------- */
+  header{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font:500 12px/1 "JetBrains Mono",monospace; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--sage); margin-bottom:22px;
+  }
+  h1{
+    font-family:"Fraunces",Georgia,serif; font-weight:600;
+    font-size:clamp(42px,7vw,72px); line-height:1.02;
+    letter-spacing:-.01em; color:var(--pine); margin-bottom:18px;
+  }
+  .role{max-width:620px;font-size:18px;color:var(--ink)}
+  .role b{font-weight:600}
+
+  .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .pill{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:10px 16px;border:1px solid var(--line);border-radius:999px;
+    background:var(--card);font-weight:500;font-size:15px;color:var(--ink);
+    transition:border-color .15s,transform .15s;
+  }
+  .pill svg{width:18px;height:18px;fill:var(--pine);flex:none}
+  .pill:hover{border-color:var(--pine);transform:translateY(-1px);color:var(--ink)}
+  .pill:hover svg{fill:var(--marigold)}
+
+  .receipts{
+    margin-top:34px;background:var(--ink);color:#DCE7DC;border-radius:10px;
+    padding:18px 20px;font:13.5px/1.9 "JetBrains Mono",monospace;overflow-x:auto;
+  }
+  .receipts .p{color:#8FC99A}
+  .receipts .c{color:#7C8F7E}
+
+  /* ---------- sections ---------- */
+  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  .label{
+    font:500 12px/1 "JetBrains Mono",monospace;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--pine);margin-bottom:28px;
+  }
+
+  /* projects */
+  .project{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:26px 26px 22px;transition:border-color .15s,transform .15s;
+  }
+  .project + .project{margin-top:20px}
+  .project:hover{border-color:var(--pine);transform:translateY(-2px)}
+  .project h3{
+    font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:24px;
+    color:var(--pine);
+  }
+  .project .sub{color:var(--sage);font-size:14.5px;margin:2px 0 12px}
+  .project p{max-width:64ch}
+  .stats{
+    display:flex;flex-wrap:wrap;gap:8px 22px;margin:16px 0 14px;
+    font:13px/1.6 "JetBrains Mono",monospace;color:var(--pine);
+  }
+  .stats span::before{content:"▸ ";color:var(--marigold)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .tag{
+    font-size:12.5px;padding:4px 10px;border-radius:999px;
+    background:#E9EEE5;color:var(--pine);
+  }
+  .repo{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:15px}
+  .repo svg{width:16px;height:16px;fill:currentColor}
+
+  /* experience */
+  .job h3{font-size:18px;font-weight:600}
+  .job .meta{color:var(--sage);font-size:14.5px;margin:2px 0 14px}
+  .job ul{padding-left:20px;max-width:70ch}
+  .job li{margin-bottom:8px}
+  .job li::marker{color:var(--marigold)}
+
+  /* skills */
+  .skillrow{display:grid;grid-template-columns:190px 1fr;gap:10px 20px;align-items:start;margin-bottom:16px}
+  .skillrow .k{font:500 13px/2 "JetBrains Mono",monospace;color:var(--sage)}
+  @media(max-width:620px){.skillrow{grid-template-columns:1fr;gap:4px}}
+
+  /* education + paper */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:720px){.duo{grid-template-columns:1fr}}
+  .cardlet{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+  .cardlet h3{font-size:16.5px;font-weight:600;color:var(--pine);margin-bottom:8px}
+  .cardlet p{font-size:15px}
+  .cardlet .big{font-family:"Fraunces",Georgia,serif;font-size:30px;color:var(--pine);font-weight:600}
+
+  /* footer */
+  footer{padding:56px 0 72px}
+  footer .h{
+    font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:30px;
+    color:var(--pine);margin-bottom:10px;
+  }
+  footer p{max-width:56ch;margin-bottom:22px}
+  .fineprint{margin-top:40px;font:12.5px/1.6 "JetBrains Mono",monospace;color:var(--sage)}
+
+  /* motion */
+  @media(prefers-reduced-motion:no-preference){
+    .rise{opacity:0;transform:translateY(10px);animation:rise .6s ease forwards}
+    .d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.26s}.d4{animation-delay:.38s}
+    @keyframes rise{to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow rise">Portfolio — Pune, India</p>
+    <h1 class="rise d1">Tanvi<br>Wadgaonkar</h1>
+    <p class="role rise d2">I build Python systems end to end — <b>data pipelines, ML models, and the
+    APIs that serve them</b> — and I like every claim to come with a test that proves it.
+    Final-year E&amp;TC at IIIT Pune · Engineering Intern at Schaeffler India.</p>
+
+    <div class="links rise d3">
+      <a class="pill" href="https://github.com/tanviwadgaonkar" target="_blank" rel="noopener" aria-label="GitHub profile">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        GitHub
+      </a>
+      <a class="pill" href="https://www.linkedin.com/in/tanvi-wadgaonkar-030863272/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+        LinkedIn
+      </a>
+      <a class="pill" href="mailto:tanviwadgaonkar25@gmail.com" aria-label="Send an email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H2c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Zm10 8.4L21.6 6H2.4L12 12.4Zm-10 6.6h20V8.2l-9.4 6.3a1 1 0 0 1-1.2 0L2 8.2V19Z"/></svg>
+        Email
+      </a>
+    </div>
+
+    <div class="receipts rise d4" aria-label="Verified results">
+<span class="c"># verified results</span>
+<span class="p">$</span> pytest -q  <span class="c">→</span>  18 passed <span class="c">(across both projects)</span>
+<span class="p">$</span> best model  <span class="c">→</span>  95.1% accuracy · 0.95 macro-F1 <span class="c">(12-crop dataset)</span>
+<span class="p">$</span> automation  <span class="c">→</span>  ~100-report batch: 1 hour → under a minute
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="projects">
+    <div class="wrap">
+      <p class="label">Projects</p>
+
+      <article class="project">
+        <h3>AgriSense AI</h3>
+        <p class="sub">Soil classification &amp; crop recommendation · related paper accepted at ICAIMEST-2026</p>
+        <p>End-to-end ML application: cleans and validates soil-test data (N, P, K, pH, moisture
+        plus weather attributes), classifies soil condition with agronomy rules, and recommends
+        the top-3 crops with probabilities through a Flask interface.</p>
+        <div class="stats">
+          <span>95.1% accuracy · 0.95 macro-F1</span>
+          <span>3 models compared, 5-fold CV</span>
+          <span>7-test pytest suite</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">scikit-learn</span>
+          <span class="tag">pandas</span><span class="tag">Flask</span><span class="tag">pytest</span>
+        </div>
+        <a class="repo" href="https://github.com/tanviwadgaonkar/agrisense-ai" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          View the code
+        </a>
+      </article>
+
+      <article class="project">
+        <h3>ReleaseGuard</h3>
+        <p class="sub">Explainable deployment-risk &amp; regression analyzer</p>
+        <p>FastAPI service that scores a candidate release 0–100 — and traces every point to an
+        auditable factor: diff size, database migrations, critical-path files, missing test
+        updates, infra changes and deploy timing. Ships with a GitHub pull-request adapter,
+        Docker image and CI.</p>
+        <div class="stats">
+          <span>8 auditable risk factors</span>
+          <span>11-test suite, green CI</span>
+          <span>Dockerised · GitHub Actions</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">FastAPI</span>
+          <span class="tag">Pydantic v2</span><span class="tag">Docker</span><span class="tag">CI/CD</span>
+        </div>
+        <a class="repo" href="https://github.com/tanviwadgaonkar/releaseguard" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          View the code
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <p class="label">Experience</p>
+      <div class="job">
+        <h3>Schaeffler India — Engineering Intern</h3>
+        <p class="meta">Mar 2026 – Present · Pune</p>
+        <ul>
+          <li>Develop Python scripts that extract, clean, validate and organise system and
+          validation data from Windchill Integrity, replacing manual copy-paste workflows.</li>
+          <li>Automated recurring report generation — a ~100-report batch that took about an
+          hour by hand now finishes in under a minute.</li>
+          <li>Work through validation criteria, edge cases and failure scenarios with engineers,
+          then document the workflows so results stay repeatable.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <p class="label">Skills</p>
+      <div class="skillrow"><span class="k">languages</span><div class="tags">
+        <span class="tag">Python</span><span class="tag">SQL</span>
+        <span class="tag">HTML/CSS</span><span class="tag">JavaScript (basic)</span></div></div>
+      <div class="skillrow"><span class="k">cs fundamentals</span><div class="tags">
+        <span class="tag">Data Structures &amp; Algorithms</span><span class="tag">OOP</span>
+        <span class="tag">Operating Systems</span><span class="tag">Computer Networks</span>
+        <span class="tag">DBMS</span></div></div>
+      <div class="skillrow"><span class="k">backend &amp; ml</span><div class="tags">
+        <span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">REST APIs</span>
+        <span class="tag">scikit-learn</span><span class="tag">pandas</span>
+        <span class="tag">NumPy</span><span class="tag">Pydantic</span></div></div>
+      <div class="skillrow"><span class="k">tools &amp; databases</span><div class="tags">
+        <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">SQLite</span>
+        <span class="tag">Git &amp; GitHub</span><span class="tag">Docker</span>
+        <span class="tag">GitHub Actions</span><span class="tag">pytest</span>
+        <span class="tag">Postman</span><span class="tag">Linux</span></div></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <p class="label">Education &amp; Research</p>
+      <div class="duo">
+        <div class="cardlet">
+          <h3>IIIT Pune · B.E. E&amp;TC, 2022–2026</h3>
+          <p class="big">CGPA 8.5<span style="font-size:16px;color:var(--sage)"> / 10</span></p>
+          <p>Electronics &amp; Telecommunication Engineering, with coursework across DSA,
+          operating systems, networks and databases.</p>
+        </div>
+        <div class="cardlet">
+          <h3>ICAIMEST-2026 · research paper</h3>
+          <p>Co-authored a paper on soil classification and crop recommendation, accepted for
+          presentation. Also hold an Indian copyright registration for
+          “Arduino Interfacing with SD Card”.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="h">Let’s talk.</p>
+    <p>Open to Python backend, data and ML roles (2026). The fastest way to reach me is
+    email — or find me on GitHub and LinkedIn.</p>
+    <div class="links">
+      <a class="pill" href="mailto:tanviwadgaonkar25@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H2c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Zm10 8.4L21.6 6H2.4L12 12.4Zm-10 6.6h20V8.2l-9.4 6.3a1 1 0 0 1-1.2 0L2 8.2V19Z"/></svg>
+        tanviwadgaonkar25@gmail.com
+      </a>
+      <a class="pill" href="https://github.com/tanviwadgaonkar" target="_blank" rel="noopener" aria-label="GitHub profile">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        GitHub
+      </a>
+      <a class="pill" href="https://www.linkedin.com/in/tanvi-wadgaonkar-030863272/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <p class="fineprint">Tanvi Wadgaonkar · 2026 · built by hand, hosted on GitHub Pages</p>
+  </div>
+</footer>
+
+</body>
+</html>
